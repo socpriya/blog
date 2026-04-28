@@ -17,6 +17,12 @@ The Institution of Engineers - India <br>
 Grade A
 
 
+## Patents
+
+* Predicting resource lifecycles and managing resources in enterprise networks. [US-12271867-B1]({{ site.baseurl }}/assets/pdf/patents/12271867.pdf){:target="_blank"}
+* Machine Learning-Based Supply Chain Performance Predictions. [18/633823]({{ site.baseurl }}/assets/pdf/patents/20240346377.pdf){:target="_blank"}
+
+
 ## Data Science Certifications
 
 * Introduction to Data Science. University of Washington
