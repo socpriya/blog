@@ -23,7 +23,20 @@ Refer to the [pull request of this model](https://github.com/Chicago/food-inspec
 [While working on structural steel drawings]({{ site.baseurl }}/assets/pdf/cadalyst/Weight Calculation-2.jpg) in AutoCAD, I often needed to calculate the total weight of materials—a task that was time-consuming and error-prone when done manually, especially during design revisions.
 {: .text-justify}
 
-To address this, I developed an AutoLISP routine called [WWT.LSP (window weight total)]({{ site.baseurl }}/assets/pdf/cadalyst/Weight Calculation-1.jpg). It allowed users to select numeric values either individually or through a window and automatically summed all real and integer numbers from the selected entities. This simple utility significantly improved efficiency and accuracy, turning a repetitive manual process into a quick and reliable operation within the CAD workflow.
+To address this, I developed an AutoLISP routine called [WWT.LSP (window weight total)]({{ site.baseurl }}/assets/pdf/cadalyst/Weight Calculation-1.jpg). It allowed users to select numeric values either individually or through a window and automatically summed all real and integer numbers from the selected entities. 
+{: .text-justify}
+
+This simple utility significantly improved efficiency and accuracy, turning a repetitive manual process into a quick and reliable operation within the CAD workflow.
+{: .text-justify}
+
+![screenshot]({{ site.baseurl }}/assets/img/underscore.png)
+[In dual-unit AutoCAD drawings]({{ site.baseurl }}/assets/pdf/cadalyst/MM to Inch Conversion-2.jpg), presenting dimensions in both metric and imperial units often required repetitive manual conversion and formatting, which could lead to inconsistencies.
+{: .text-justify}
+
+To address this, I created three short AutoLISP routines. [MMIN.LSP converts millimeter dimensions to inches]({{ site.baseurl }}/assets/pdf/cadalyst/MM to Inch Conversion-1.jpg) and appends the result in parentheses beside the original value, while INMM.LSP performs the reverse conversion. A third routine, TTRM.LSP, reformats dual dimensions by separating them onto two lines, placing one above the other for improved readability.
+{: .text-justify}
+
+The TTRM routine assumes standard dimension settings—DIMSCALE aligned with the drawing scale, DIMTXT set to 2.5, and a text style with zero height—ensuring consistent and clean presentation across drawings.
 {: .text-justify}
 
 ![screenshot]({{ site.baseurl }}/assets/img/underscore.png)
