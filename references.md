@@ -20,3 +20,13 @@ Refer to the [pull request of this model](https://github.com/Chicago/food-inspec
 {: .text-justify}
 
 ![screenshot]({{ site.baseurl }}/assets/img/underscore.png)
+[While working on structural steel drawings]({{ site.baseurl }}/assets/pdf/cadalyst/Weight Calculation-2.jpg) in AutoCAD, I often needed to calculate the total weight of materials—a task that was time-consuming and error-prone when done manually, especially during design revisions.
+{: .text-justify}
+
+To address this, I developed an AutoLISP routine called [wwt.lsp (window weight total)]({{ site.baseurl }}/assets/pdf/cadalyst/Weight Calculation-1.jpg). It allowed users to select numeric values either individually or through a window and automatically summed all real and integer numbers from the selected entities.
+{: .text-justify}
+
+This simple utility significantly improved efficiency and accuracy, turning a repetitive manual process into a quick and reliable operation within the CAD workflow.
+{: .text-justify}
+
+![screenshot]({{ site.baseurl }}/assets/img/underscore.png)
