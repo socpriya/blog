@@ -1,41 +1,53 @@
-<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
-     styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+{% assign t = page.title %}
+<aside class="sidebar" id="sidebar">
 
-<!-- Toggleable sidebar -->
-<div class="sidebar" id="sidebar">
-  <div class="sidebar-item">
-    <p>{{ site.description }}</p>
+  {% if t == "Home" %}
+  <div class="side-label">Topics</div>
+  <div class="side-stack" id="topicNav">
+    <button class="side-link active" data-topic="all">All posts <span class="count"></span></button>
+    <button class="side-link" data-topic="Machine Learning">Machine Learning <span class="count"></span></button>
+    <button class="side-link" data-topic="Computer Vision">Computer Vision <span class="count"></span></button>
+    <button class="side-link" data-topic="Apps &amp; Deployment">Apps &amp; Deployment <span class="count"></span></button>
+    <button class="side-link" data-topic="R &amp; Spark">R &amp; Spark <span class="count"></span></button>
+    <button class="side-link" data-topic="Visualization">Visualization <span class="count"></span></button>
   </div>
 
-  <nav class="sidebar-nav">
-    <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}/">Home</a>
-
-    {% comment %}
-      The code below dynamically generates a sidebar nav of pages with
-      `layout: page` in the front-matter. See readme for usage.
-    {% endcomment %}
-
-    {% assign pages_list = site.pages | sort:"navigation_weight" %}
-    {% for node in pages_list %}		<!-- and node.title != "kaggle" -->
-      {% if node.title != null %}
-        {% if node.layout == "page" %}
-          <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ site.baseurl }}{{ node.url }}">{{ node.title }}</a>
-        {% endif %}
-      {% endif %}
-    {% endfor %}
-	
-
-	<a class="sidebar-nav-item" href="/kaggle.html">Kaggle</a>
-	<a class="sidebar-nav-item" href="/projects.html">Projects</a>
-
-    <a class="sidebar-nav-item" href="https://github.com/socratesk/" target="_blank">GitHub Repo</a>
-	<a class="sidebar-nav-item" href="https://www.linkedin.com/in/socrates-krishnamurthy" target="_blank">LinkedIn Profile</a>
-  </nav>
-
-  <div class="sidebar-item">
-    <p>
-      &copy; {{ site.time | date: '%Y' }}. All rights reserved.
-    </p>
+  <div class="side-label">Sections</div>
+  <div class="side-stack">
+    <a class="side-link" href="{{ site.baseurl }}/kaggle.html">Kaggle <span class="count">{{ site.categories.kaggle | size }}</span></a>
+    <a class="side-link" href="{{ site.baseurl }}/projects.html">Projects <span class="count">{{ site.categories.projects | size }}</span></a>
   </div>
-</div>
+  {% else %}
+  <div class="side-label">Browse</div>
+  <div class="side-stack">
+    <a class="side-link{% if t == 'Home' %} active{% endif %}" href="{{ site.baseurl }}/">All posts <span class="count">{{ site.categories.blog | size }}</span></a>
+    <a class="side-link{% if t == 'Kaggle' %} active{% endif %}" href="{{ site.baseurl }}/kaggle.html">Kaggle <span class="count">{{ site.categories.kaggle | size }}</span></a>
+    <a class="side-link{% if t == 'Projects' %} active{% endif %}" href="{{ site.baseurl }}/projects.html">Projects <span class="count">{{ site.categories.projects | size }}</span></a>
+  </div>
+
+  <div class="side-label">Pages</div>
+  <div class="side-stack">
+    <a class="side-link{% if t == 'About Me' %} active{% endif %}" href="{{ site.baseurl }}/about">About Me</a>
+    <a class="side-link{% if t == 'Presentations' %} active{% endif %}" href="{{ site.baseurl }}/presentations">Presentations</a>
+    <a class="side-link{% if t == 'References' %} active{% endif %}" href="{{ site.baseurl }}/references">References</a>
+    <a class="side-link{% if t == 'Credentials' %} active{% endif %}" href="{{ site.baseurl }}/credentials">Credentials</a>
+    <a class="side-link{% if t == 'Motivational and Inspirational Quotes' %} active{% endif %}" href="{{ site.baseurl }}/quotes">Quotes</a>
+  </div>
+  {% endif %}
+
+  <div class="author-card">
+    <div class="who">
+      <div class="author-avatar">S</div>
+      <div>
+        <div class="name">Socrates Krishnamurthy</div>
+        <div class="role">Data Scientist</div>
+      </div>
+    </div>
+    <p class="bio">Notes from the journey toward Data Science — challenges, competitions, tools, and tips &amp; tricks.</p>
+    <div class="author-links">
+      <a href="https://github.com/socratesk/" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5A10.5 10.5 0 0 0 8.7 22c.5.1.7-.2.7-.5v-1.7c-2.9.6-3.5-1.4-3.5-1.4-.5-1.2-1.2-1.5-1.2-1.5-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.6-1.4-2.3-.3-4.7-1.2-4.7-5.1 0-1.1.4-2 1-2.7 0-.3-.4-1.3.1-2.7 0 0 .9-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .6 1.4.2 2.4.1 2.7.7.7 1 1.6 1 2.7 0 3.9-2.3 4.8-4.6 5.1.4.3.7.9.7 1.9v2.8c0 .3.2.6.7.5A10.5 10.5 0 0 0 12 1.5z"/></svg></a>
+      <a href="https://www.linkedin.com/in/socrates-krishnamurthy" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6 1.12 6 0 4.88 0 3.5 0 2.12 1.12 1 2.5 1 3.87 1 4.98 2.12 4.98 3.5zM.2 8h4.6v14H.2V8zm7.2 0h4.41v1.92h.06c.61-1.16 2.11-2.38 4.34-2.38 4.64 0 5.5 3.05 5.5 7.02V22h-4.6v-6.2c0-1.48-.03-3.38-2.06-3.38-2.06 0-2.38 1.61-2.38 3.27V22H7.4V8z"/></svg></a>
+      <a href="https://twitter.com/ksocrates" target="_blank" rel="noopener" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7 8 8.2 12h-6.4l-5-7-5.8 7H2.6l7.5-9L2 2h6.6l4.6 6.4L18.9 2zm-1.1 18h1.8L7.3 4H5.4l12.4 16z"/></svg></a>
+    </div>
+  </div>
+</aside>

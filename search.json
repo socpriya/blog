@@ -1,0 +1,18 @@
+---
+layout: null
+---
+[
+{% for post in site.posts %}
+  {
+    "title": {{ post.title | jsonify }},
+    "url": {{ post.url | jsonify }},
+    "date": "{{ post.date | date: '%Y-%m-%d' }}",
+    "category": {{ post.category | jsonify }},
+    "topic": {{ post.topic | default: '' | jsonify }},
+    "slug": {{ post.url | split: '/' | last | jsonify }},
+    "keywords": {{ post.keywords | default: '' | jsonify }},
+    "words": {{ post.content | strip_html | number_of_words }},
+    "excerpt": {{ post.content | strip_html | strip_newlines | truncatewords: 42 | jsonify }}
+  }{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]

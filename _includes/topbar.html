@@ -1,0 +1,34 @@
+{% assign u = page.url %}
+{% assign t = page.title %}
+<header class="topbar">
+  <button class="icon-btn menu-btn" id="menuBtn" aria-label="Menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+  </button>
+
+  <a class="brand" href="{{ site.baseurl }}/" title="Home">
+    <span class="brand-mark">S</span>
+    <span class="brand-name">socratesk</span>
+  </a>
+
+  <nav class="topnav">
+    <a href="{{ site.baseurl }}/"{% if t == "Home" %} class="active"{% endif %}>Blog</a>
+    <a href="{{ site.baseurl }}/kaggle.html"{% if t == "Kaggle" %} class="active"{% endif %}>Kaggle</a>
+    <a href="{{ site.baseurl }}/projects.html"{% if t == "Projects" %} class="active"{% endif %}>Projects</a>
+    <a href="{{ site.baseurl }}/about"{% if t == "About Me" %} class="active"{% endif %}>About</a>
+    <a href="{{ site.baseurl }}/presentations"{% if t == "Presentations" %} class="active"{% endif %}>Presentations</a>
+    <a href="{{ site.baseurl }}/credentials"{% if t == "Credentials" %} class="active"{% endif %}>Credentials</a>
+    <a href="{{ site.baseurl }}/quotes"{% if t == "Motivational and Inspirational Quotes" %} class="active"{% endif %}>Quotes</a>
+  </nav>
+
+  <div class="topbar-right">
+    <label class="topbar-search" for="globalSearch">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:15px;height:15px;color:var(--fg-3)"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      <input id="globalSearch" type="text" placeholder="Search posts…" autocomplete="off">
+      <span class="kbd">⌘K</span>
+    </label>
+    <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>
+    </button>
+  </div>
+</header>
