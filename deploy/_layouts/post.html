@@ -1,0 +1,38 @@
+---
+layout: default
+---
+<article class="post">
+  <a class="post-back" href="{{ site.baseurl }}/">&larr; All posts</a>
+  <h1 class="post-title">{{ page.title }}</h1>
+
+  <div class="post-byline">
+    <span class="chip" data-topic-slug="{{ page.url | split:'/' | last }}" data-category="{{ page.category }}">{{ page.category | capitalize }}</span>
+    <span class="post-date">{{ page.date | date: "%d %b %Y" }}</span>
+    <span class="dot">&middot;</span>
+    <span class="read-time">{{ content | number_of_words | divided_by: 200 | plus: 1 }} min read</span>
+  </div>
+
+  {% if page.keywords %}
+  <div class="post-keywords">
+    {% assign kws = page.keywords | split: "," %}
+    {% for kw in kws %}<span class="tag">{{ kw | strip }}</span>{% endfor %}
+  </div>
+  {% endif %}
+
+  <div class="post-divider"></div>
+
+  <div class="post-body">
+    {{ content }}
+  </div>
+</article>
+
+<div id="disqus_thread"></div>
+<script>
+(function() {
+    var d = document, s = d.createElement('script');
+    s.src = '//socratesk.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>

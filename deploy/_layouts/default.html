@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en-us" data-theme="light">
+
+  {% include head.html %}
+
+  <body>
+
+    {% include topbar.html %}
+
+    <div class="layout">
+      {% include sidebar.html %}
+      <main class="content{% if page.title == 'Home' or page.title == 'Kaggle' or page.title == 'Projects' %} feed{% endif %}">
+        {{ content }}
+      </main>
+    </div>
+
+    <script src="{{ site.baseurl }}/public/js/site.js"></script>
+  </body>
+</html>
